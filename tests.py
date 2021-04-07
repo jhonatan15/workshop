@@ -1,36 +1,11 @@
-
+import pandas as pd
 from objects.subjects import Subjects
 from objects.students import Students
 from objects.teachers import Teachers
 
-import datetime, random, calendar
-
-# --------------- Function to know the day of the week -------------
-#month_day = int(input("Enter the number of the day to #consult the calendar: "))
-#month_day_1 = 0
-#def dateMonth(month_day):
-    #global month_day_1
-    #print(calendar.weekday(2021, 4, month_day))
-    #month_day_1 = calendar.weekday(2021, 4, month_day)
-
-#dateMonth(month_day)
-
-#days_week = {
-    #'Monday' : 0,
-    #'Tuesday' : 1,
-    #'Wednesday' : 2,
-    #'Thursday' : 3,
-    #'Friday' : 4,
-    #'Saturday' : 5,
-    #'Sunday' : 6
-
-#}
-
-#for day, number in days_week.items():
-    #if number == month_day_1:
-        #print(day)
-
-
+#name_tch = input('Write your name: ')
+#name_tch = name_tch.capitalize()
+#print(name_tch)
 def populate_data():
     # all the data with which we will work is entered
     # ------------------------ Define Teachers ------------------
@@ -46,21 +21,21 @@ def populate_data():
 
     teacher_2 = Teachers(
         id = 2,
-        id_2 = '0001',
+        id_2 = '0002',
         name = 'Paola Campos',
         subjects = [3, 4]
     )
 
     teacher_3 = Teachers(
         id = 3,
-        id_2 = '0001',
+        id_2 = '0003',
         name = 'Andres Garcia',
         subjects = [1, 5, 8]
     )
 
     teacher_4 = Teachers(
         id = 4,
-        id_2 = '0001',
+        id_2 = '0004',
         name = 'Stefania Ortiz',
         subjects = [7, 2, 6]
     )
@@ -259,88 +234,50 @@ def populate_data():
     }
 
 data = populate_data()
+#def check_subjects():
+    #for key, value in data.items():
+        #if key in['Subjects' and ['Teachers']:
+            #if key in['Subjects']:
+                #for val in value:
+                    #print(val.name)
+                    #return True
 
-check_pass = None
-def check_id(password, name_tch):
-    global check_pass
-    for key, value in data.items():
-        if key in['teachers']:
-            for val in value:
-                if val.id_2 == password:
-                    check_pass = True
-                    print('Welcome Teacher ' + name_tch)
-                    return True
-                    continue
-                else:
-                    check_pass = False
-                    print('You are not authorized')
-                    return False
-                    break
 
-def check_subjects(name_tch):
+
+# for key, value in data.items():
+#     if key in['subjects']:
+#         for val in value:
+#             for key_2, value_2 in data.items():
+#                 if key_2 in['teachers']:
+#                     for val_2 in value_2:
+#                         if val_2.name == 'Carlos Ramirez':
+#                             if val.id in val_2.subjects:
+#                                 print(val.name)
+
     #---------- function to check subjects assigned to teachers ----------
-    for key, value in data.items():
-        if key in['subjects']:
-            for val in value:
-                for key_2, value_2 in data.items():
-                    if key_2 in['teachers']:
-                        for val_2 in value_2:
-                            if val_2.name == name_tch:
-                                if val.id in val_2.subjects:
-                                    print(val.name)
-
-def check_students(name_tch):
-    for key, value in data.items():
-        if key in['students']:
-            for val in value:
-                for key_2, value_2 in val.subjects.items():
-                    for key_3, value_3 in data.items():
-                        if key_3 in['teachers']:
-                            for val_3 in value_3:
-                             if val_3.name == name_tch:
+for key, value in data.items():
+    if key in['students']:
+        for val in value:
+            for key_2, value_2 in val.subjects.items():
+                for key_3, value_3 in data.items():
+                    if key_3 in['teachers']:
+                        for val_3 in value_3:
+                             if val_3.name == 'Stefania Ortiz':
                                  if value_2 == val_3.id:
-                                     print(val.name)
-#for key, value in data.items():
-    #print('List of ', key)
-    #if key in['teachers', 'students', 'subjects']:
-        #for val in value:
-        #    print(val.name)
+                                     students_list = [val.name]
+                                     no_repeat = set(students_list)
+                                     print(no_repeat)
 
-def init_program():
-    print('---------------- Welcome ----------------')
-    global check_pass
-    flag = True
 
-    while(flag):
-        select = input('''
-            Are you a Teacher or a Student?
-            1. Teacher
-            2. Student
-        ''')
-        if select == '1':
-            name_tch = input('Write your name: ')
-            name_tch = name_tch.title()
-            for key, value in data.items():
-                if key in['teachers']:
-                    for val in value:
-                        if val.name == name_tch:
-                            print(val.name)
-                            password = input('Enter your password ')
-                            check_id(password, name_tch)
-                            print(check_pass)
-                            if check_pass == True:
-                                #-------Teacher's Menu-------
-                                select_tch = input('''
-                                    Select an option:
-                                    1. Assigned subjects
-                                    2. Enrolled students
 
-                                ''')
-                                if select_tch == '1':
-                                    check_subjects(name_tch)
-                                if select_tch == '2':
-                                    check_students(name_tch)
-        #elif select == 1:
-            #print()
 
-init_program()
+
+
+
+
+
+
+        #if key in['Subjects']:
+            #for val in value:
+                #print(val.name)
+                #return True
