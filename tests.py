@@ -57,8 +57,8 @@ def populate_data():
             3 : 2
         },
         notes = {
-            1 : 'Not rated yet',
-            8 : 'Not rated yet',
+            1 : 3.4,
+            8 : 2.9,
             6 : 2.5
         }
 
@@ -72,9 +72,8 @@ def populate_data():
             5 : 3
         },
         notes = {
-            1 : 'Not rated yet',
-            8 : 'Not rated yet',
-            6 : 2.5
+            4 : 3.4,
+            5 : 4.0
         }
 
     )
@@ -88,8 +87,8 @@ def populate_data():
             7 : 4
         },
         notes = {
-            1 : 'Not rated yet',
-            8 : 'Not rated yet',
+            1 : 5,
+            8 : 4.5,
             6 : 2.5
         }
 
@@ -105,7 +104,7 @@ def populate_data():
         },
         notes = {
             1 : 3.6,
-            8 : 'Not rated yet',
+            8 : 2.5,
             6 : 2.5
         }
 
@@ -120,8 +119,8 @@ def populate_data():
             6 : 4
         },
         notes = {
-            1 : 'Not rated yet',
-            8 : 'Not rated yet',
+            1 : 2.0,
+            8 : 1.8,
             6 : 2.5
         }
 
@@ -255,24 +254,44 @@ data = populate_data()
 #                                 print(val.name)
 
     #---------- function to check subjects assigned to teachers ----------
+# for key, value in data.items():
+#     if key in['students']:
+#         for val in value:
+#             for key_2, value_2 in val.subjects.items():
+#                 for key_3, value_3 in data.items():
+#                     if key_3 in['teachers']:
+#                         for val_3 in value_3:
+#                              if val_3.name == 'Stefania Ortiz':
+#                                  if value_2 == val_3.id:
+#                                      students_list = [val.name]
+#                                      no_repeat = set(students_list)
+#                                      print(no_repeat)
+
+
+
+# for key, value in data.items():
+#     if key in['students']:
+#         for val in value:
+#             for key_2, value_2 in val.subjects.items():
+#                 for key_3, value_3 in data.items():
+#                     if key_3 in['teachers']:
+#                         for val_3 in value_3:
+#                             if val.name == 'Jhonatan Ruiz':
+#                                 if val_3.id == key_2:
+#                                     print(val.name + ' -- ' + val_3.name)
+
+
+
 for key, value in data.items():
     if key in['students']:
         for val in value:
-            for key_2, value_2 in val.subjects.items():
-                for key_3, value_3 in data.items():
-                    if key_3 in['teachers']:
-                        for val_3 in value_3:
-                             if val_3.name == 'Stefania Ortiz':
-                                 if value_2 == val_3.id:
-                                     students_list = [val.name]
-                                     no_repeat = set(students_list)
-                                     print(no_repeat)
-
-
-
-
-
-
+            if val.name == 'Jhonatan Ruiz':
+                count_notes = 0
+                sum_notes = 0
+                for key_2, value_2 in val.notes.items():
+                    count_notes += 1
+                    sum_notes += value_2
+                    print(sum_notes / count_notes)
 
 
 
