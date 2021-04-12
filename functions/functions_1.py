@@ -269,6 +269,7 @@ def check_subjects_st(name_st):
                                         print(val.name + ' -- ' + val_3.name)
 
 def check_notes(name_st):
+    #---------- function to check notes of the students ----------
     for key, value in data.items():
         if key in['students']:
             for val in value:
@@ -281,6 +282,7 @@ def check_notes(name_st):
                                         print(val_3.name, ' --> ', value_2)
 
 def avg_notes(name_st):
+    #---------- function to calculate the average ----------
     for key, value in data.items():
         if key in['students']:
             for val in value:

@@ -42,13 +42,11 @@ def check_id(password, name_tch):
                 if val.id_2 == password:
                     check_pass = True
                     return(print('Welcome Teacher ' + name_tch))
-                    continue
                 else:
                     check_pass = False
                     return(print ('You are not authorized'))
-                    break
 
-def init_program():
+def start_program():
     print('---------------- Welcome ----------------')
     global check_pass
     flag = True
@@ -65,11 +63,10 @@ def init_program():
                             print(val.name)
                             password = input('Enter your password ')
                             check_id(password, name_tch)
-                            print(check_pass)
                             if check_pass == True:
                                 flag_2 = True
                                 while(flag_2):
-                                    #-------Teachers Menu-------
+                                    #-------Teachers Menu-----------------------------------
                                     select_opt = input('Select an option: \n 1. Assigned subjects \n 2. Enrolled students \n 3. Return ')
                                     if select_opt == '1':
                                         check_subjects(name_tch)
@@ -87,7 +84,7 @@ def init_program():
                             flag_2 = True
                             while(flag_2):
                                 print('Welcome ' + val.name)
-                                #-------Students Menu-------
+                                #-------Students Menu------------------------------------------
                                 select_tch = input('Select an option: \n 1. Assigned subjects \n 2. Notes \n 3. Return ')
                                 if select_tch == '1':
                                     print(' - Student -  |  - Teacher - ')
@@ -108,4 +105,4 @@ def init_program():
             print('Goodbye')
             break
 
-init_program()
+start_program()
